@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RNA 存档技术学习页</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--ink:#1f2433;--muted:#5d6478;--accent:#2f6fed;--accent2:#7c5cff;--line:#e3e6f0}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Hiragino Sans GB",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+header{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:40px 20px;text-align:center}
+header h1{margin:0 0 8px;font-size:1.8rem}
+header p{margin:0;opacity:.92}
+main{max-width:900px;margin:0 auto;padding:24px 16px 60px}
+section{background:var(--card);border-radius:16px;padding:24px;margin-bottom:24px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+h2{margin:0 0 16px;font-size:1.35rem;color:var(--accent)}
+h3{margin:20px 0 8px;font-size:1.05rem;color:var(--accent2)}
+p{margin:0 0 10px}
+.steps{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:16px}
+.step{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcff}
+.step b{color:var(--accent2)}
+svg{width:100%;height:auto;display:block}
+.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:1rem;margin-bottom:16px;font-family:inherit}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;cursor:pointer;font-family:inherit;font-size:.9rem;color:var(--muted)}
+.tab.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.card{perspective:1000px;height:190px;cursor:pointer}
+.inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.card.flipped .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line);background:#fff;overflow:hidden}
+.back{transform:rotateY(180deg);background:#f4f1ff}
+.word{font-size:1.2rem;font-weight:700;font-family:Georgia,serif}
+.zh{font-size:1.1rem;color:var(--accent2);font-weight:700}
+.def{font-size:.92rem;color:var(--ink);margin-top:6px}
+.ex{font-size:.85rem;color:var(--muted);margin-top:8px;font-style:italic}
+.hint{font-size:.78rem;color:#98a0b5;margin-top:auto}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding-bottom:20px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>RNA 存档技术：细胞的“记忆”</h1>
+  <p>来自 ETH Zurich 的研究 · 《Nature Biotechnology》2026</p>
+</header>
+
+<main>
+
+  <!-- 1. 概要 -->
+  <section>
+    <h2>一、文章概要</h2>
+    <p>瑞士苏黎世联邦理工学院（ETH Zurich）巴塞尔分校的研究团队开发了一种名为 <b>Recordanelle</b> 的方法，可以把细胞内的 RNA 分子“存档”下来，从而推断细胞过去哪些基因曾经活跃。</p>
+    <p>传统方法只能测量细胞<b>当前</b>的状态，而且测量时细胞会被破坏，每个细胞只能测一次。这项新技术首次让科学家能够“回看”细胞的过去。研究团队已为该技术申请专利。</p>
+
+    <h3>方法是怎样运作的？</h3>
+    <div class="steps">
+      <div class="step"><b>① 选用天然蛋白质</b><br>使用应激颗粒（stress granules）中天然存在的一种蛋白质，再加上另外两种经过生物技术改造的蛋白质。</div>
+      <div class="step"><b>② 包裹 RNA</b><br>系统把细胞的 RNA 分子聚集在<b>线粒体</b>周围的一层薄膜中，使它们免受分解 RNA 的酶破坏。</div>
+      <div class="step"><b>③ 细胞自行组装</b><br>通过质粒把设计图导入细胞，细胞会自己组装这套系统。每个细胞可以在几天内存档数千个 RNA 分子。</div>
+    </div>
+  </section>
+
+  <!-- 2. 示意图 -->
+  <section>
+    <h2>二、示意图：从“活跃”到“存档”</h2>
+    <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RNA 存档流程示意图">
+      <defs>
+        <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#7c5cff"/>
+        </marker>
+      </defs>
+      <ellipse cx="120" cy="140" rx="95" ry="80" fill="#fff" stroke="#2f6fed" stroke-width="3"/>
+      <circle cx="105" cy="130" r="26" fill="#eef3ff" stroke="#2f6fed" stroke-width="2"/>
+      <path d="M60 80 q10 10 0 20 t0 20" stroke="#9aa3b8" fill="none" stroke-width="3"/>
+      <path d="M170 90 q-10 10 0 20 t0 20" stroke="#9aa3b8" fill="none" stroke-width="3"/>
+      <text x="120" y="250" text-anchor="middle" font-size="18" fill="#1f2433">普通细胞</text>
+      <text x="120" y="272" text-anchor="middle" font-size="13" fill="#5d6478">RNA 随时间被分解</text>
+
+      <line x1="230" y1="140" x2="300" y2="140" stroke="#7c5cff" stroke-width="3" marker-end="url(#arr)"/>
+      <text x="265" y="128" text-anchor="middle" font-size="13" fill="#7c5cff">加入系统</text>
+
+      <ellipse cx="400" cy="140" rx="95" ry="80" fill="#fff" stroke="#2f6fed" stroke-width="3"/>
+      <ellipse cx="400" cy="150" rx="60" ry="38" fill="#d9f5ea" stroke="#1e9e6a" stroke-width="2"/>
+      <path d="M375 150 q8 -10 16 0 t16 0 t16 0 t16 0" stroke="#1e9e6a" fill="none" stroke-width="2"/>
+      <path d="M368 140 q8 -10 16 0 t16 0 t16 0 t16 0" stroke="#1e9e6a" fill="none" stroke-width="2"/>
+      <path d="M375 162 q8 -10 16 0 t16 0 t16 0 t16 0" stroke="#1e9e6a" fill="none" stroke-width="2"/>
+      <text x="400" y="250" text-anchor="middle" font-size="18" fill="#1f2433">RNA 被“包裹”</text>
+      <text x="400" y="272" text-anchor="middle" font-size="13" fill="#5d6478">在线粒体周围的薄膜中受保护</text>
+
+      <line x1="510" y1="140" x2="580" y2="140" stroke="#7c5cff" stroke-width="3" marker-end="url(#arr)"/>
+      <text x="545" y="128" text-anchor="middle" font-size="13" fill="#7c5cff">几天后回看</text>
+
+      <ellipse cx="680" cy="140" rx="95" ry="80" fill="#fff" stroke="#2f6fed" stroke-width="3"/>
+      <rect x="630" y="115" width="100" height="50" rx="10" fill="#f4f1ff" stroke="#7c5cff" stroke-width="2"/>
+      <text x="680" y="146" text-anchor="middle" font-size="15" fill="#7c5cff">存档 RNA</text>
+      <text x="680" y="250" text-anchor="middle" font-size="18" fill="#1f2433">读取过去的基因</text>
+      <text x="680" y="272" text-anchor="middle" font-size="13" fill="#5d6478">还原哪些基因曾经活跃</text>
+    </svg>
+  </section>
+
+  <!-- 3. 为什么有用 -->
+  <section>
+    <h2>三、为什么这很重要？</h2>
+    <h3>🔬 发现罕见的细胞</h3>
+    <p>有时科学家只有在事后才知道哪些细胞很特别。借助存档技术，可以先挑出这些细胞，再回溯它们过去的基因活动。</p>
+    <h3>🎗️ 癌症研究</h3>
+    <p>有些癌细胞能在化疗后存活，之后可能导致癌症复发，这类细胞称为<b>持留细胞（persister cells）</b>。目前很难研究它们是如何形成的，新技术有望解答这个问题。</p>
+    <h3>🛡️ 免疫与应激反应</h3>
+    <p>免疫和应激反应只持续很短的时间。刺激消失后，细胞会很快关闭相关基因。如果测量得太晚，就看不到这些反应。存档技术可以记录这些短暂的变化。</p>
+  </section>
+
+  <!-- 4. 词汇卡片 -->
+  <section>
+    <h2>四、词汇卡片（点击卡片翻转）</h2>
+    <input class="search" id="search" type="search" placeholder="搜索单词或中文，例如：线粒体 / mitochondria / 预约">
+    <div class="tabs" id="tabs"></div>
+    <div class="grid" id="cards"></div>
+  </section>
+
+</main>
+
+<footer>学习用途 · 内容根据文章整理</footer>
+
+<script>
+const words = [
+  // ── 文章词汇 ──
+  {cat:"文章", w:"archive (v.)", zh:"存档；归档", def:"把东西保存起来，以后可以再查看。", ex:"The cell's RNA is archived for later study.（细胞的 RNA 被存档，以便以后研究。）"},
+  {cat:"文章", w:"RNA molecule", zh:"RNA 分子（核糖核酸）", def:"从 DNA 复制基因信息并带在细胞里的分子。", ex:"RNA molecules show which genes are active.（RNA 分子显示哪些基因正在活跃。）"},
+  {cat:"文章", w:"mitochondria", zh:"线粒体", def:"细胞中负责产生能量的部分。", ex:"The film surrounds the mitochondria.（薄膜包围着线粒体。）"},
+  {cat:"文章", w:"stress granule", zh:"应激颗粒", def:"细胞受到压力时，内部形成的 RNA 聚集物。", ex:"Stress granules form during an infection.（感染时会形成应激颗粒。）"},
+  {cat:"文章", w:"enzyme", zh:"酶", def:"一种能加快化学反应速度的蛋白质。", ex:"Enzymes break down RNA.（酶会分解 RNA。）"},
+  {cat:"文章", w:"breakdown / decay", zh:"分解；降解", def:"物质随时间慢慢分裂成更小的部分。", ex:"Unprotected RNA breaks down quickly.（没有保护的 RNA 很快就会分解。）"},
+  {cat:"文章", w:"snapshot", zh:"快照；瞬间状态", def:"某一刻事物状态的记录。", ex:"Old methods only give a snapshot.（旧方法只能提供一张快照。）"},
+  {cat:"文章", w:"gene expression", zh:"基因表达", def:"基因被激活并制造出产物的过程。", ex:"Gene expression changes under stress.（压力下基因表达会改变。）"},
+  {cat:"文章", w:"transient", zh:"短暂的；瞬时的", def:"只持续很短一段时间。", ex:"It is a transient immune response.（这是一种短暂的免疫反应。）"},
+  {cat:"文章", w:"chemotherapy", zh:"化疗", def:"用强效药物杀死癌细胞的癌症治疗方法。", ex:"Some cells survive chemotherapy.（有些细胞能在化疗后存活。）"},
+  {cat:"文章", w:"recurrence", zh:"复发", def:"疾病治疗后又再次出现。", ex:"These cells may cause cancer recurrence.（这些细胞可能导致癌症复发。）"},
+  {cat:"文章", w:"persister cell", zh:"持留细胞", def:"能在治疗中存活，之后可能让疾病再次出现的细胞。", ex:"Persister cells are hard to study.（持留细胞很难研究。）"},
+  {cat:"文章", w:"retrospect", zh:"回顾；回溯", def:"回头看过去。\"in retrospect\" 表示事后回想。", ex:"In retrospect, the cells were special.（事后回想，这些细胞很特别。）"},
+  {cat:"文章", w:"immune response", zh:"免疫反应", def:"免疫系统对入侵或有害物质所做出的反应。", ex:"The immune response happens quickly.（免疫反应发生得很快。）"},
+
+  // ── 日常生活常用词 ──
+  {cat:"日常", w:"appointment", zh:"预约；约会（看医生等）", def:"事先约好的见面或服务时间。", ex:"I have an appointment at 3 p.m.（我下午三点有个预约。）"},
+  {cat:"日常", w:"reschedule", zh:"改期；重新安排时间", def:"把原定的时间换成另一个时间。", ex:"Can we reschedule to Friday?（我们可以改到周五吗？）"},
+  {cat:"日常", w:"cancel", zh:"取消", def:"不再进行原定的计划、活动或订单。", ex:"I need to cancel my order.（我需要取消我的订单。）"},
+  {cat:"日常", w:"reminder", zh:"提醒；提醒事项", def:"提醒你不要忘记某件事的信息或通知。", ex:"Set a reminder for tomorrow.（设置明天的提醒。）"},
+  {cat:"日常", w:"available", zh:"有空的；可以使用的", def:"有时间参加，或者可以得到、可以使用。", ex:"Are you available this evening?（你今晚有空吗？）"},
+  {cat:"日常", w:"convenient", zh:"方便的", def:"容易做到、不费事、很适合你的时间或需要。", ex:"Is 5 p.m. convenient for you?（下午五点对你方便吗？）"},
+  {cat:"日常", w:"delay", zh:"延误；推迟", def:"比原定时间晚发生或晚到。", ex:"The bus is running with a delay.（公交车晚点了。）"},
+  {cat:"日常", w:"delivery", zh:"送货；配送", def:"把商品或包裹送到收件人手上。", ex:"My delivery arrives tomorrow.（我的包裹明天到。）"},
+  {cat:"日常", w:"receipt", zh:"收据；小票", def:"付款后证明你已经买过东西的纸或电子凭证。", ex:"Can I have the receipt, please?（请给我收据好吗？）"},
+  {cat:"日常", w:"grocery", zh:"杂货；日用食品", def:"家里日常需要买的食物和用品。", ex:"I need to buy some groceries.（我需要买一些日用品。）"},
+  {cat:"日常", w:"weekend", zh:"周末", def:"一周中休息的两天，通常是周六和周日。", ex:"What are you doing this weekend?（你这个周末做什么？）"},
+  {cat:"日常", w:"on time", zh:"准时", def:"在约定的时间到达或完成。", ex:"Please be on time for class.（上课请准时。）"}
+];
+
+const tabsEl = document.getElementById('tabs');
+const cardsEl = document.getElementById('cards');
+const searchEl = document.getElementById('search');
+let currentCat = "全部";
+const cats = ["全部", "文章", "日常"];
+
+cats.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'tab' + (c === currentCat ? ' on' : '');
+  b.textContent = c === "全部" ? "全部" : (c === "文章" ? "文章词汇" : "日常用语");
+  b.addEventListener('click', () => {
+    currentCat = c;
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+    b.classList.add('on');
+    render(searchEl.value);
+  });
+  tabsEl.appendChild(b);
+});
+
+function render(filter = '') {
+  cardsEl.innerHTML = '';
+  const f = filter.trim().toLowerCase();
+  words
+    .filter(x => currentCat === "全部" || x.cat === currentCat)
+    .filter(x => !f || (x.w + x.zh + x.def).toLowerCase().includes(f))
+    .forEach(x => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="inner">
+          <div class="face">
+            <div class="word"></div>
+            <div class="hint">点击查看中文 ↻</div>
+          </div>
+          <div class="face back">
+            <div class="zh"></div>
+            <div class="def"></div>
+            <div class="ex"></div>
+          </div>
+        </div>`;
+      card.querySelector('.word').textContent = x.w;
+      card.querySelector('.zh').textContent = x.zh;
+      card.querySelector('.def').textContent = x.def;
+      card.querySelector('.ex').textContent = x.ex;
+      card.addEventListener('click', () => card.classList.toggle('flipped'));
+      cardsEl.appendChild(card);
+    });
+}
+render();
+searchEl.addEventListener('input', e => render(e.target.value));
+</script>
+</body>
+</html>
